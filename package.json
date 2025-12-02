@@ -1,0 +1,46 @@
+{
+    "name": "temporal_features",
+    "version": "0.1.0",
+    "description": "High-performance temporal feature engineering library implemented in Rust",
+    "main": "index.node",
+    "types": "index.d.ts",
+    "napi": {
+        "name": "temporal_features",
+        "triples": {
+            "defaults": true,
+            "additional": [
+                "x86_64-unknown-linux-musl",
+                "aarch64-unknown-linux-gnu",
+                "aarch64-unknown-linux-musl",
+                "aarch64-apple-darwin",
+                "x86_64-apple-darwin"
+            ]
+        }
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@napi-rs/cli": "^2.18.0"
+    },
+    "engines": {
+        "node": ">= 10"
+    },
+    "scripts": {
+        "artifacts": "napi artifacts",
+        "build": "napi build --platform --release --features javascript --cargo-flags='--features javascript'",
+        "build:debug": "napi build --platform --features javascript --cargo-flags='--features javascript'",
+        "prepublishOnly": "napi prepublish -t npm",
+        "test": "cargo test --features javascript",
+        "version": "napi version"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/temporal_features.git"
+    },
+    "keywords": [
+        "temporal",
+        "features",
+        "rust",
+        "napi",
+        "performance"
+    ]
+}

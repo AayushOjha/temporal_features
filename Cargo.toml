@@ -2,10 +2,27 @@
 name = "temporal_features"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 
 [lib]
 name = "temporal_features"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+python = ["pyo3"]
+javascript = ["napi", "napi-derive"]
+
 
 [dependencies]
-pyo3 = { version = "0.23", features = ["extension-module"] }
+# Python bindings (optional)
+pyo3 = { version = "0.23", features = ["extension-module"], optional = true }
+
+# JavaScript/Node.js bindings (optional)
+napi = { version = "2", optional = true }
+napi-derive = { version = "2", optional = true }
+
+[build-dependencies]
+napi-build = "2"
+
+
