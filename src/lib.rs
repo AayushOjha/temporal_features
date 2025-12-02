@@ -35,6 +35,7 @@ impl TemporalFeaturesCore {
 // It wraps the core logic and translates calls.
 
 #[cfg_attr(feature = "python", pyclass)]
+#[cfg_attr(feature = "javascript", napi)]
 #[derive(Debug, Clone)]
 pub struct TemporalFeatures {
     core: TemporalFeaturesCore,
