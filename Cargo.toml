@@ -19,10 +19,10 @@ javascript = ["napi", "napi-derive"]
 pyo3 = { version = "0.23", features = ["extension-module"], optional = true }
 
 # JavaScript/Node.js bindings (optional)
-napi = { version = "2.16.1", optional = true }
-napi-derive = { version = "2.16.1", optional = true }
+napi = { version = "=2.16.1", optional = true }
+napi-derive = { version = "=2.16.1", optional = true }
 
 [build-dependencies]
-napi-build = "2.1.3"
+napi-build = "=2.1.3"
 
 
