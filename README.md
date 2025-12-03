@@ -13,16 +13,16 @@ A high-performance library for temporal feature engineering, implemented in Rust
 
 ## 📦 Installation
 
-### Python
-
-```bash
-pip install temporal_features
-```
-
 ### JavaScript/Node.js
 
 ```bash
 npm install temporal_features
+```
+
+### Python
+
+```bash
+pip install temporal_features
 ```
 
 ## 🚀 Usage
