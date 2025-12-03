@@ -47,8 +47,9 @@ jobs:
             docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-alpine
             build: |-
               set -e &&
+              apk add zig --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community &&
               rustup target add aarch64-unknown-linux-musl &&
-              npm run build -- --target aarch64-unknown-linux-musl &&
+              npm run build -- --target aarch64-unknown-linux-musl --zig &&
               /aarch64-linux-musl-cross/bin/aarch64-linux-musl-strip *.node
     name: stable - ${{ matrix.settings.target }} - node@18
     runs-on: ${{ matrix.settings.host }}
