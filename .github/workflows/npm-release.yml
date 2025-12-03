@@ -106,7 +106,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: "*.node"
+          path: |
+            *.node
+            index.js
+            index.d.ts
           if-no-files-found: error
   publish:
     name: Publish to NPM
@@ -128,8 +131,10 @@ jobs:
       - name: Flatten artifacts
         run: |
           find artifacts -name "*.node" -exec mv {} . \;
+          find artifacts -name "index.js" -exec mv {} . \;
+          find artifacts -name "index.d.ts" -exec mv {} . \;
           rm -rf artifacts
-          ls -la *.node
+          ls -la
       - name: Move artifacts
         run: |
           mkdir -p npm
