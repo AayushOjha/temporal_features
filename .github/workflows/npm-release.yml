@@ -127,9 +127,12 @@ jobs:
       - name: Flatten artifacts
         run: |
           find artifacts -name "*.node" -exec mv {} . \;
-          ls -l *.node
+          rm -rf artifacts
+          ls -la *.node
       - name: Move artifacts
-        run: npm run artifacts
+        run: |
+          mkdir -p npm
+          npm run artifacts
       - name: List packages
         run: ls -R ./npm
         shell: bash
